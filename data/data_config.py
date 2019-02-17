@@ -12,9 +12,10 @@ class global_var:
 	data='8'
 	expect='9'
 	result='10'
-#获取caseid
+#获取caseid  且为字符串类型，用int在后续转化为整数型
 def get_id():
 	return global_var.Id
+	# 把变量放在类里，保证调用时不会调用重名的数据 
 
 #获取url
 def get_url():

@@ -18,10 +18,14 @@ class RunTest:
 			method=self.data.get_request_method(i)
 			is_run=self.data.get_is_run(i)
 			data=self.data.get_data_for_json(i)
+			#不能调用get_request_data()方法
 			header=self.data.is_header(i)
-			if is_run:
-				#method,url,data=None,header=None
+			if is_run = True:
+			#method,url,data=None,header=None  run_main里边变量的顺序不能错
 				res=self.run_method.run_main(method,url,data,header)
+			# 	return res
+			# else:
+			# 	return res
 			return res
 if __name__ == '__main__':
 	run = RunTest()

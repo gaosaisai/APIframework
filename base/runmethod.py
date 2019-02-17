@@ -1,21 +1,23 @@
 #coding:utf-8
 import requests
+import json
 class RunMethod:
 	def post_main(self,url,data,header=None):
 		res=None
 		if header != None:
-			res=request.post(url=url,data=data,henders=hender).json()
+			res=requests.post(url=url,data=data,headers=header).json()
 		else:
 			res=requests.post(url=url,data=data).json()
-		return res 
+			print (res.status_code)
+		return res.json()
 
 	def get_main(self,url,data=None,header=None):
 		res=None
 		if header != None:
-			res=request.post(url=url,data=data,henders=hender).json()
+			res=request.post(url=url,data=data,headers=header).json()
 		else:
 			res=requests.post(url=url,data=data).json()
-		return res 
+		return res
 
 	def run_main(self,method,url,data=None,header=None):
 		res=None	
@@ -23,4 +25,4 @@ class RunMethod:
 			res=self.post_main(url,data,header)
 		else:
 			res=self.get_main(url,data,header)
-		return res
+		return res.dumps(res,ensure_ascii=False,sort_keys=True,indent=2)

@@ -6,14 +6,18 @@ from util.operation_excel import OperationExcel
 import data_config
 from util.operation_json import OperationJson
 class GetData:
+	# 构造函数把 OperationExcel 拿进来
 	def __init__(self):
-		self.opera_excel=OperationExcel()   #添加以后才能操作OperationExcel里边的数据，
+		self.opera_excel=OperationExcel()   
+		#添加以后才能操作OperationExcel里边的数据，
 		#因为后边的数据基本都需要从这里边调用，所以先进行初始化。
-	# 去获取Excel行数，就是我们的case个数
+
+	# 去获取Excel行数，就是我们的case个数  跟Excel里边的方法没有任何区别，
+	# 但是老师还封装了一遍  555~~~
 	def get_case_lines(self):
 		return self.opera_excel.get_lines()
 
-	#获取是否执行
+	#获取是否执行  返回True 和 False
 	def get_is_run(self,row):
 		flag = None
 		col=int(data_config.get_run())
@@ -26,10 +30,10 @@ class GetData:
 
 	#是否携带header
 	def is_header(self,row):
-		col=int(data_config.get_header())
+		col=int(data_config.get_header()) #转换字符串为整数型
 		header=self.opera_excel.get_cell_value(row,col)
 		if header=='yes':
-			return data.config.get_header_value()  #读取真是的header
+			return data_config.get_header_value()  #读取真实的header
 		else:
 			return None
 
@@ -53,9 +57,11 @@ class GetData:
 			return None
 		return data
 
-	#通过获取关键字拿到data数据,这块听得不是特别懂
+	#通过获取关键字拿到data数据,需要跟上边的data结合起来
+	#调用上边返回的data  后续调用这个方法即可，
+	#上边的方法算是到json文件的一个过渡
 	def get_data_for_json(self,row):
-		opera_json=OperationJson()
+		opera_json=OperationJson()  #也可以在构造函数里边实例化
 		request_data=opera_json.get_data(self.get_request_data(row))
 		return request_data
 
