@@ -1,12 +1,15 @@
 #coding:utf-8
 import sys
-sys.path.append("C:/Users/saga270448/Pycharmwww/imooc")
+sys.path.append("C:/Users/saga270448/Pycharmwww/APIframework")
+sys.path.append("C:/Users/saga270448/Pycharmwww/APIframework/data")
 from base.runmethod import RunMethod
 from data.get_data import GetData
+from util.common_util import CommonUtil
 class RunTest:
 	def __init__(self):
 		self.run_method=RunMethod()
 		self.data=GetData()
+		self.com_util=CommonUtil()
 
 	#程序执行的主入口
 	def go_on_run(self):
@@ -19,13 +22,16 @@ class RunTest:
 			is_run=self.data.get_is_run(i)
 			data=self.data.get_data_for_json(i)
 			#不能调用get_request_data()方法
+			expect=self.data.get_expect_data(i)
 			header=self.data.is_header(i)
-			if is_run = True:
+			if is_run:
 			#method,url,data=None,header=None  run_main里边变量的顺序不能错
 				res=self.run_method.run_main(method,url,data,header)
-			# 	return res
-			# else:
-			# 	return res
+				if self.com_util.is_contain(expect,res):
+					print ("测试通过")
+				else:
+					print ("测试失败")
+
 			return res
 if __name__ == '__main__':
 	run = RunTest()

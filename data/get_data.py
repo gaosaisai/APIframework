@@ -1,6 +1,6 @@
 #coding:utf-8
 import sys
-sys.path.append("C:/Users/saga270448/Pycharmwww/imooc/data")
+sys.path.append("C:/Users/saga270448/Pycharmwww/APIframework")
 #没加上边两居话之前一直报错，说没有这个模块
 from util.operation_excel import OperationExcel
 import data_config
