@@ -28,10 +28,11 @@ class RunTest:
 			#method,url,data=None,header=None  run_main里边变量的顺序不能错
 				res=self.run_method.run_main(method,url,data,header)
 				if self.com_util.is_contain(expect,res):
-					print ("测试通过")
+					# print ("测试通过")
+					self.data.write_result(i,'pass')
 				else:
-					print ("测试失败")
-
+					# print ("测试失败")
+					self.data.write_result(i,'fail')
 			return res
 if __name__ == '__main__':
 	run = RunTest()
