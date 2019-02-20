@@ -43,13 +43,13 @@ class OperationExcel:
 		# cell_value 通过行列坐标读取表格中的数据
 
 	#写入数据
-	def write_value(self,row,col,value):
+	def write_value(self,row,col,value):  #不是特别明白具体的方法使用，需要再看看
 		'''
 		写入Excel数据
 		row,col,value
 		'''
 		read_data = xlrd.open_workbook(self.file_name)
-		write_data = copy(read_data)
+		write_data = copy(read_data) 
 		sheet_data = write_data.get_sheet(0)
 		sheet_data.write(row,col,value)
 		write_data.save(self.file_name)
