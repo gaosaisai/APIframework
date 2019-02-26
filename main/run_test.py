@@ -1,7 +1,7 @@
 #coding:utf-8
 import sys
-sys.path.append("C:/Users/saga270448/Pycharmwww/APIframework")
-sys.path.append("C:/Users/saga270448/Pycharmwww/APIframework/data")
+sys.path.append("E:/saisaigithubfiles/APIframework")
+sys.path.append("E:/saisaigithubfiles/APIframework/data")
 from base.runmethod import RunMethod
 from data.get_data import GetData
 from util.common_util import CommonUtil
@@ -27,6 +27,7 @@ class RunTest:
 			if is_run:
 			#method,url,data=None,header=None  run_main里边变量的顺序不能错
 				res=self.run_method.run_main(method,url,data,header)
+				print (res)
 				if self.com_util.is_contain(expect,res):
 					# print ("测试通过")
 					self.data.write_result(i,'pass')
