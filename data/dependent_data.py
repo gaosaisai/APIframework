@@ -23,7 +23,3 @@ class DependdentData:
 		url = self.data.get_request_url(row_num)
 		res = run_method.run_main(method,url,request_data,header)
 		return res
-
-
-
-

@@ -10,4 +10,5 @@ class CommonUtil:
 		if str_one in str_two:
 			flag = True
 		else:
-			flag = False
+			flag = False	
+		return flag

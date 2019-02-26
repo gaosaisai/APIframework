@@ -73,7 +73,7 @@ class GetData:
 			return None
 		return expect
 
-	#
+	# 写入数据  所有列相关的数据都在这里边，行相关的数据是不固定的，需要在主函数中确定
 	def write_result(self,row,value):
 		col = int(data_config.get_result())
 		self.opera_excel.write_value(row,col,value)

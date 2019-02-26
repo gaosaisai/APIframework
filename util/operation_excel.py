@@ -42,17 +42,20 @@ class OperationExcel:
 		return self.data.cell_value(row,col)
 		# cell_value 通过行列坐标读取表格中的数据
 
+
+
 	#写入数据
-	def write_value(self,row,col,value):  #不是特别明白具体的方法使用，需要再看看
+	def write_value(self,row,col,value): 
 		'''
 		写入Excel数据
 		row,col,value
 		'''
-		read_data = xlrd.open_workbook(self.file_name)
-		write_data = copy(read_data) 
+		read_data = xlrd.open_workbook(self.file_name)  #xlrd  xlwt xlutils 的区别
+		write_data = copy(read_data)   #复制一份进行编辑
 		sheet_data = write_data.get_sheet(0)
-		sheet_data.write(row,col,value)
-		write_data.save(self.file_name)
+		sheet_data.write(row,col,value)   #将数据 复制出来的Excel表中 写入哪行 哪列 具体什么值 写入时，原有文件数据会消失
+		write_data.save(self.file_name)   #save 的用法？？ 将后来的文件save到原来的文件中
+
 
 	#根据对应的caseid找到对应行的内容
 	def get_rows_data(self,case_id):
@@ -60,23 +63,22 @@ class OperationExcel:
 		rows_data = self.get_row_values(row_num)
 		return rows_data
 
-	#根据对应的caseid找到对应的行号：
+	#根据对应的caseid找到对应的 行号 (excel表中的行号):
 	def get_row_num(self,case_id):
 		num=0
 		clols_data = self.get_cols_data()
 		for coll_data in cols_data:
 			if case_id in cols_data:
 				return num
-			num = num +1
-
+			num = num +1  #如果case_id 没有找到 自增1
 
 	#根据行号，找到该行的内容
 	def get_row_values(self,row):
-		tables = self.data
-		row_data = tables.row_values(row)
+		tables = self.data  #当前整个sheet的内容
+		row_data = tables.row_values(row)  #方法roe_values()?????
 		return row_data
 
-	#获取某一列的内容
+	#获取某一列的内容 (写死了，不传值的时候区第0列)
 	def get_cols_data(self,col_id=None):
 		if col_id != None:
 			cols = self.data.col_values(col_id)
