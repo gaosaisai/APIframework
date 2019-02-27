@@ -78,3 +78,13 @@ class GetData:
 		col = int(data_config.get_result())
 		self.opera_excel.write_value(row,col,value)
 
+
+	#获取依赖数据的key
+	def get_depend_key(self,row):
+		col = int(data.config.get_data_depend())
+		depent_key = self.opera_excel.get_cell_value(row,col)
+		if depent_key == "":
+			return None
+		else:
+			return depent_key
+
