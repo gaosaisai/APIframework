@@ -66,9 +66,9 @@ class OperationExcel:
 	#根据对应的caseid找到对应的 行号 (excel表中的行号):
 	def get_row_num(self,case_id):
 		num=0
-		clols_data = self.get_cols_data()
-		for coll_data in cols_data:
-			if case_id in cols_data:
+		cols_data = self.get_cols_data()
+		for col_data in cols_data:
+			if case_id in col_data:
 				return num
 			num = num +1  #如果case_id 没有找到 自增1
 
