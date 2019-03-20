@@ -22,3 +22,5 @@ for i in new_aa:
 	dd[i]=aa.count(i)
 	# dd[i] =aa.count(i)
 print (dd)
+
+
