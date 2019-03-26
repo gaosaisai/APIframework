@@ -24,9 +24,10 @@ class RunMain:
 		return res
 
 if __name__ =='__main__':
-	url = 'https://zhidao.baidu.com/home/api/onequestion'
-	data={
-		'_':'1548346869811'
-	}
-	run = RunMain(url,'GET',data)
+	url = 'http://v.juhe.cn/laohuangli/d?date=2014-09-09&key=2e42c2614ebe84c6f225ea00b7095242'
+	# data={
+	# 	'key':'2e42c2614ebe84c6f225ea00b7095242',
+	# 	'date':'2014-09-09'
+	# }
+	run = RunMain(url,'GET')
 	print (run.res)
