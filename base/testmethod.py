@@ -24,7 +24,7 @@ class TestMethod(unittest.TestCase):
 			}
 		# run=RunMain()   # 调用的demo中的类，赋值为 run
 		res= mock_test(self.run.run_main,data,url,'POST',data)
-		# mock_data = mock.Mock(return_value=data)  #把data作为一个返回值
+		# mock_data = mock.Mock(return_value=data)  #把data作为一个mock的返回值
 		# print (mock_data)
 		# self.run.run_main=mock_data
 		res =self.run.run_main(url,'POST',data)   # 调用demo 中的run_main()方法
