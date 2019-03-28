@@ -1,7 +1,7 @@
 # #coding:utf-8
-import MySQLdb
+import pymysql
 import json
-conn = MySQLdb.connect(
+conn = pymysql.connect(
 			host='localhost',
 			port=336,
 			user='root',
@@ -36,5 +36,5 @@ class OperationMysql:
 
 if __name__ == '__main__':
 	op_mysql = OperationMysql()
-	res = op_mysql.search_one("select * from web_user whers Name='mushishi")
+	res = op_mysql.search_one("select * from web_user where Name='mushishi")
 	print (type(res))
